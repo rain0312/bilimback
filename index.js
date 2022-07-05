@@ -26,7 +26,7 @@ app.listen(PORT, () => {
  });
 
  app.post("/send-email", (req, res, next) => {
+  res.header("Access-Control-Allow-Origin", "*");
   let message = `Имя: ${req.body.name}\nEmail: ${req.body.email}\nДата: ${req.body.date}\nНомер телефона: ${req.body.phone}\nДополнительное описание: ${req.body.message}`
   bot.sendMessage(466485762, message);
-  
  });

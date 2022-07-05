@@ -21,12 +21,18 @@ bot.onText(/\/echo (.+)/, (msg, match) => {
   bot.sendMessage(chatId, resp);
 });
 
+app.all('*', function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "X-Requested-With");
+  res.header('Access-Control-Allow-Headers', 'Content-Type');
+  next();
+});
+
 app.listen(PORT, () => {
   console.log("Server running on port 8999");
  });
 
  app.post("/send-email", (req, res, next) => {
-  res.header("Access-Control-Allow-Origin", "*");
   let message = `Имя: ${req.body.name}\nEmail: ${req.body.email}\nДата: ${req.body.date}\nНомер телефона: ${req.body.phone}\nДополнительное описание: ${req.body.message}`
   bot.sendMessage(466485762, message);
  });

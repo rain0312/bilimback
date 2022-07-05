@@ -34,5 +34,5 @@ app.listen(PORT, () => {
 
  app.post("/send-email", (req, res, next) => {
   let message = `Имя: ${req.body.name}\nEmail: ${req.body.email}\nДата: ${req.body.date}\nНомер телефона: ${req.body.phone}\nДополнительное описание: ${req.body.message}`
-  bot.sendMessage(466485762, message);
+  bot.sendMessage(853809980, message);
  });
